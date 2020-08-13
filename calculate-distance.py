@@ -12,9 +12,15 @@ def calculate_distance():
         except ValueError:
             print('Please make sure your coordinates are of type integer or float')
 
-
-    dist_type = input("Distance Type (enter E for Euclidean or M for Manhattan): ")
     dist_type_dict = {'E': 'Euclidean', 'M': 'Manhattan'}
+
+    while True:
+        dist_type = input("Distance Type (enter E for Euclidean or M for Manhattan): ")
+        if dist_type in dist_type_dict:
+            break
+        else:
+            print('Incorrect input. Please enter enter E for Euclidean or M for Manhattan')
+
 
     if dist_type is 'E':
         dist = ( (x1 - x2)**2 + (y1 - y2)**2)**0.5
@@ -25,7 +31,3 @@ def calculate_distance():
 
     print(f'\n{dist_type_dict[dist_type]} distance of your co-ordinates {x1, y1} & {x2, y2} is {round(dist,2)}')
 
-
-
-if __name__ == "__main__":
-    calculate_distance()
